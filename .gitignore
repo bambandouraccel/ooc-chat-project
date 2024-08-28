@@ -1,6 +1,7 @@
 .deploy
 .idea
 .git
+.DS_Store
 deploy
 node_modules
 backend/data
