@@ -9,4 +9,6 @@ frontend/node_modules
 scripts/node_modules
 frontend/build
 frontend/dist
-version.json
+#version.json
+#version.sh
+
