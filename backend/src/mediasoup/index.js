@@ -224,9 +224,15 @@ const initSocket = (socket) => {
       },
     )
       .then((meeting) => {
-        meeting.users.forEach((user) => {
+        //
+        /*meeting.users.forEach((user) => {
           socket.to(user).emit('refresh-meetings', { timestamp: Date.now() });
-        });
+        });*/
+        if (meeting && meeting.users) {
+          meeting.users.forEach((user) => {
+            socket.to(user).emit('refresh-meetings', { timestamp: Date.now() });
+          });
+        }  
       })
       .catch((err) => console.log(err));
 
@@ -254,9 +260,14 @@ const initSocket = (socket) => {
 
     await Meeting.findOneAndUpdate({ _id: data.roomID }, { lastLeave: Date.now(), $pull: { peers: socket.id } })
       .then((meeting) => {
-        (meeting.users || []).forEach((user) => {
+        /*(meeting.users || []).forEach((user) => {
           socket.to(user).emit('refresh-meetings', { timestamp: Date.now() });
-        });
+        });*/
+        if (meeting && meeting.users) {
+          meeting.users.forEach((user) => {
+            socket.to(user).emit('refresh-meetings', { timestamp: Date.now() });
+          });
+        }  
       })
       .catch((err) => console.log(err));
 
