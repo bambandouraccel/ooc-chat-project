@@ -1,7 +1,7 @@
 require('colors');
 
 console.log(`${'Heritage'.yellow} © ${'2024'.yellow}`);
-console.log(`Welcome to ${'Origins Office Communication'.cyan}`);
+console.log(`Welcome to ${'OOC'.cyan}`);
 
 const express = require('express');
 const app = express();
