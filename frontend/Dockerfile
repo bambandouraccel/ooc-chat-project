@@ -2,8 +2,9 @@
 
 FROM docker.io/node:18 as build-stage
 
-ENV VITE_SITE_TITLE="Origins Office Communication" VITE_SITE_BRAND="Heritage" VITE_BACKEND_URL="https://ooc-backend.apps.origins.heritage.africa" VITE_DEMO=false VITE_SHOW_CREDITS=true
+#ENV VITE_SITE_TITLE="Origins Office Communication" VITE_SITE_BRAND="Heritage" VITE_BACKEND_URL="https://ooc-backend.apps.origins.heritage.africa" VITE_DEMO=false VITE_SHOW_CREDITS=true
 
+ENV VITE_SITE_TITLE="Origins Office Communication" VITE_SITE_BRAND="Heritage" VITE_BACKEND_URL="https://ooc-backend-clover-chat.apps.origins.heritage.africa" VITE_DEMO=false VITE_SHOW_CREDITS=true
 WORKDIR /app
 
 COPY package*.json ./
