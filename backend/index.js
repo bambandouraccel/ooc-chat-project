@@ -10,9 +10,19 @@ const io = require('socket.io');
 const store = require('./src/store');
 const init = require('./src/init');
 const mediasoup = require('./src/mediasoup');
+const cors = require('cors');
+
+// Configuration de CORS
+app.use(cors({
+    origin: 'https://ooc-frontend-clover-chat.apps.origins.heritage.africa',
+    methods: ['GET', 'POST', 'PUT', 'DELETE'], // Méthodes autorisées
+    credentials: true, // Pour autoriser les cookies et en-têtes d'autorisation
+}));
 
 Config = require('./config');
 if (Config.ip) Config.mediasoup.webRtcTransport.listenIps[0].ip = Config.ip;
+
+
 
 app.use((req, res, next) => (store.connected ? next() : res.status(500).send('Database not available.')));
 
